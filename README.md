@@ -5,7 +5,7 @@ Output of the aformentioned online tools will not allow direct annotation of seq
 generate a set of python scripts that allow the generation of GFF3 annotation files from the output to facilitate
 de novo sequence annotations.
 
-### FGENESH:
+## FGENESH:
 Find the online tool at:
 
 http://www.softberry.com/berry.phtml?topic=fgenesh&group=programs&subgroup=gfind
@@ -47,7 +47,7 @@ This needs to be changed in the future.
 
   The script will output a log_file.txt and a name_of_generated_gff3_file.gff3 file in the working path.
 
-### Conserved Domain Search:
+## Conserved Domain Search:
 Find the online tool at:
 
 https://www.ncbi.nlm.nih.gov/Structure/cdd/wrpsb.cgi
