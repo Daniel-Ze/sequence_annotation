@@ -3,7 +3,6 @@
 #How-to use:
 #   python /path/to/script/FGENESH_to_gff3.py /path/to/FGENESH/output/output.txt
 #   name_of_sequence name_of_gff3_file_to_be_generated
-#correspondance: d.zendler@gmx.de
 #Tested on python version 2.7.15_1, MacOS High Sierra 10.13.6, Excel 2016 for
 #MacOS
 
