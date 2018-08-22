@@ -15,7 +15,7 @@ Reference: Solovyev V, Kosarev P, Seledsov I, Vorobyev D. Automatic annotation o
 The output gives you start and stop of transcripts (TSS, PolA) plus a possible coding sequence (CDS).
 FGENESH_to_gff3.py takes the FGENESH output and transforms it to GFF3.
 
-#### Working with FGENESH_to_gff3.py:
+### Working with FGENESH_to_gff3.py:
 So far the FGENESH output needs to be tabstop delimited. I achieved this by using Excel:
 
 - Copy output and paste in excel
@@ -61,7 +61,7 @@ Marchler-Bauer A, Bryant SH (2004), "CD-Search: protein domain annotations on th
 The output gives you start and stop position of conserved and well known domain structures.
 ConservedDomainSearch_to_gff3.py takes the output and transforms it to a gff3 file.
 
-#### Working with ConservedDomainSearch_to_gff3.py
+### Working with ConservedDomainSearch_to_gff3.py
 So far the ConservedDomainSearch output needs to be tabstop delimited. I achieved this by using Excel:
 
 - Copy output and paste in excel
