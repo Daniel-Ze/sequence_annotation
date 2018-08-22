@@ -78,7 +78,7 @@ This needs to be changed in the future.
 
 The python script can be called as follows:
 
->python /path/of/the/script/ConservedDomainSearch_to_gff3.py /path/to/the/tab/delimited/FGENESH/output.txt name_of_sequence_to_be_annotated name_of_generated_gff3_file
+	>python /path/of/the/script/ConservedDomainSearch_to_gff3.py /path/to/the/tab/delimited/FGENESH/output.txt name_of_sequence_to_be_annotated name_of_generated_gff3_file
 
 The script will output a log_file.txt and a name_of_generated_gff3_file.gff3 file in the working path.
 
