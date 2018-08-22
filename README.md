@@ -46,3 +46,39 @@ This needs to be changed in the future.
     >python /path/of/the/script/FGENESH_to_gff3.py /path/to/the/tab/delimited/FGENESH/output.txt name_of_sequence_to_be_annotated name_of_generated_gff3_file
 
   The script will output a log_file.txt and a name_of_generated_gff3_file.gff3 file in the working path.
+
+### Conserved Domain Search:
+Find the online tool at:
+
+https://www.ncbi.nlm.nih.gov/Structure/cdd/wrpsb.cgi
+
+References:
+Marchler-Bauer A et al. (2017), "CDD/SPARCLE: functional classification of proteins via subfamily domain architectures.", Nucleic Acids Res.45(D)200-3.
+Marchler-Bauer A et al. (2015), "CDD: NCBI's conserved domain database.", Nucleic Acids Res.43(D)222-6.
+Marchler-Bauer A et al. (2011), "CDD: a Conserved Domain Database for the functional annotation of proteins.", Nucleic Acids Res.39(D)225-9.
+Marchler-Bauer A, Bryant SH (2004), "CD-Search: protein domain annotations on the fly.", Nucleic Acids Res.32(W)327-331.
+
+The output gives you start and stop position of conserved and well known domain structures.
+ConservedDomainSearch_to_gff3.py takes the output and transforms it to a gff3 file.
+
+#### Working with ConservedDomainSearch_to_gff3.py
+So far the ConservedDomainSearch output needs to be tabstop delimited. I achieved this by using Excel:
+
+- Copy output and paste in excel
+- Save as tab delimited .txt file
+
+Example input:
+```
+NB-ARC	pfam00931	NB-ARC domain;	1063-1902	5.72E-66
+RX-CC_like	cd14798	Coiled-coil domain of the potato virux X resistance protein and similar proteins; The potato ...	550-936	1.28E-29
+PLN03210	PLN03210	Resistant to P. syringae 6; Provisional	997-1692	8.82E-08
+PLN00113	PLN00113	leucine-rich repeat receptor-like protein kinase; Provisional	2116-2991	1.61E-03
+```
+This needs to be changed in the future.
+
+The python script can be called as follows:
+
+>python /path/of/the/script/ConservedDomainSearch_to_gff3.py /path/to/the/tab/delimited/FGENESH/output.txt name_of_sequence_to_be_annotated name_of_generated_gff3_file
+
+The script will output a log_file.txt and a name_of_generated_gff3_file.gff3 file in the working path.
+
