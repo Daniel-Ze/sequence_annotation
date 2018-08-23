@@ -3,7 +3,7 @@
 #Output needs to be stored as tabstop delimited data.
 #How-to use:
 #   python /path/to/script/ConservedDomainSearch_to_gff3.py
-#   /path/to/ConservedDomainSearch/output/output.txt name_of_sequence 
+#   /path/to/FGENESH/output/output.txt name_of_sequence
 #   name_of_gff3_file_to_be_generated
 #Tested on python version 2.7.15_1, MacOS High Sierra 10.13.6, Excel 2016 for
 #MacOS
@@ -25,6 +25,7 @@ class File():
         self.working_path = ""
         self.sequence_name = ""
         self.gff3_name = ""
+        self.gff3_offset = ""
 
         #Check if there is filename indicated
         self.parse_stdin()
@@ -37,16 +38,22 @@ class File():
 
 
     def parse_stdin(self):
-        if len(sys.argv) > 2 and sys.argv[1] is not None:
+        print(len(sys.argv))
+        if len(sys.argv) == 5 and sys.argv[1] is not None:
             self.file_input_name = sys.argv[1]
             self.working_path = os.path.dirname(sys.argv[1])
             self.sequence_name = sys.argv[2]
             self.gff3_name = sys.argv[3]
+            self.gff3gff3_offset = sys.argv[4]
         elif not sys.stdin.isatty():
             self.file_input_stdin = sys.stdin
+        elif len(sys.argv) == 4:
+            print("Please supply an offset value (if none needed enter 0).")
+            exit()
         else:
             print("There was an issue locating your input")
-            exit("Please provide a valid filename/file as input")
+            exit("Please provide a valid filename/file as input, sequence name, gff3 file name and offset\n"+
+                 "(if no offset is needed enter 0)")
 
     def read_content_of_file(self):
         try:
@@ -72,7 +79,12 @@ def main():
 
     #Give the file the GFF3 header
     gff3.write("##gff-version 3")
+    offset = file.gff3gff3_offset
+    offset_int = int(offset)
     gff_format = ''
+    num = 1
+    count = ''
+    a = '0000'
 
     log.write("Program started at: " + str(now) + "\n"
               "Logfile and annotation file " + file.gff3_name +
@@ -96,21 +108,37 @@ def main():
             start_stop = interval.split("-")
             start = start_stop[0]
             stop = start_stop[1]
+            start_int = int(start)
+            stop_int = int(stop)
+
+            if offset_int > 0:
+                start_int = start_int + offset_int
+                stop_int = stop_int + offset_int
 
             #replace ';' with '' due to confusion of gff3
             description = description.replace(';', '')
+            count = str(num)
+            if len(count) == 1:               #checking if the number is below 10
+                count = a + count               #creating 5 digit code
+            elif len(count) == 2:             #checking if number is below 100
+                count = a[0:3] + count         #creating 5 digit code
+            elif len(count) == 3:             #checking if number is below 1000
+                count = a[0:2] + count          #creating 5 digit code
 
             #Write to gff3 output file
-            gff_format = gff_format + "\n" + (file.sequence_name+"\t"+name+"\t"+
-                                            "Domain"+"\t"+start+"\t"+stop+
-                                            "\t.\t"+"?"+"\t.\t"+"ID="+name+
+            gff_format = gff_format + "\n" + (file.sequence_name+"\tConservedDomainSearch\t"+
+                                            "Domain"+"\t"+str(start_int)+"\t"+str(stop_int)+
+                                            "\t.\t"+"?"+"\t.\t"+"ID=Domain"+count+
+                                            ";name="+name+
                                             ";e-value="+e_value+";acession="
                                             +acession+";description="+
                                             description)
+            num = num + 1
 
     print(gff_format)
     gff3.write(gff_format)
     log.write("Success!")
-
+    gff3.close()
+    log.close()
 if __name__ == "__main__":
     main()
