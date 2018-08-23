@@ -60,6 +60,7 @@ Marchler-Bauer A, Bryant SH (2004), "CD-Search: protein domain annotations on th
 
 The output gives you start and stop position of conserved and well known domain structures.
 ConservedDomainSearch_to_gff3.py takes the output and transforms it to a gff3 file.
+Optional ConservedDomainSearch_to_gff3.py can offset the annotation position as the input for the Conserved Domain Search is limited to 200000 bases.
 
 ### Working with ConservedDomainSearch_to_gff3.py
 So far the ConservedDomainSearch output needs to be tabstop delimited. I achieved this by using Excel:
@@ -78,7 +79,9 @@ This needs to be changed in the future.
 
 The python script can be called as follows:
 
-	>python /path/of/the/script/ConservedDomainSearch_to_gff3.py /path/to/the/tab/delimited/FGENESH/output.txt name_of_sequence_to_be_annotated name_of_generated_gff3_file
+	>python /path/of/the/script/ConservedDomainSearch_to_gff3.py /path/to/the/tab/delimited/FGENESH/output.txt name_of_sequence_to_be_annotated name_of_generated_gff3_file 0
+
+The '0' can be changed to any wanted offset value for easy merging of multiple outputs.
 
 The script will output a log_file.txt and a name_of_generated_gff3_file.gff3 file in the working path.
 
