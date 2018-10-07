@@ -108,6 +108,7 @@ AGAGGCGAGCGAGGCGTCGATCGATACGTAGCTAGT
 ```
 
 The python script can be called as follows:
+
 	>python /path/to/the/script/extract_fasta.py /path/to/the/sequence/neme/file/SeqIDs.txt /path/to/the/multi/fasta/file/Sequences.fa
 
 The script will output a .fa file in the working directory with the fasta file and it will output the sequences in the terminal.
