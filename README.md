@@ -1,4 +1,4 @@
-# sequence_annotation
+# Sequence annotation
 Tools for sequence annotation such as fgenesh (softberry), conserved domain search (NCBI)
 
 Output of the aformentioned online tools will not allow direct annotation of sequence files. Therefore I'm trying to 
@@ -84,4 +84,32 @@ The python script can be called as follows:
 The '0' can be changed to any wanted offset value for easy merging of multiple outputs.
 
 The script will output a log_file.txt and a name_of_generated_gff3_file.gff3 file in the working path.
+
+# Sequence manipulation
+## Extract fasta sequences from multi fasta file
+Tool for extraction of fasta sequences via a sequence list file from a multi fasta file.
+
+### Working with extract_fasta.py
+Files needed:
+- File with sequence names with one name per line
+- Fasta file with multiple sequences
+
+Example input sequence names as .txt file:
+```
+Test1
+Test
+```
+Example input fasta file as .fa:
+```
+>Test
+AGACGAGAAGGGCGACGAGAGCGAGCGAGAGCGAGC
+>Test1
+AGAGGCGAGCGAGGCGTCGATCGATACGTAGCTAGT
+```
+
+The python script can be called as follows:
+	>python /path/to/the/script/extract_fasta.py /path/to/the/sequence/neme/file/SeqIDs.txt /path/to/the/multi/fasta/file/Sequences.fa
+
+The script will output a .fa file in the working directory with the fasta file and it will output the sequences in the terminal.
+
 
