@@ -87,7 +87,8 @@ The script will output a log_file.txt and a name_of_generated_gff3_file.gff3 fil
 
 # Sequence manipulation
 ## Extract fasta sequences from multi fasta file
-Tool for extraction of fasta sequences via a sequence list file from a multi fasta file.
+Tool for extraction of fasta sequences via a sequence list file from a multi fasta file. Comes in handy if you're working
+with tools like signalP, targetP, EffectorP, AppoplastP.
 
 ### Working with extract_fasta.py
 Files needed:
