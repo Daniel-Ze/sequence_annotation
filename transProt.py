@@ -67,7 +67,6 @@ def convFasta(multiFastaFile):#Write the sequence of a multifasta file in one li
     for lines in multiFastaFile:
         if lines != "" and lines[:1] == '>':
             seqName = lines.split('.')
-            print(seqName)
             seqName = '.'.join(seqName[0:3]) + '.prot'
             new_file = new_file + seqName
             a = a + 1
