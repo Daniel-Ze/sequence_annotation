@@ -21,7 +21,6 @@ class File():
         self.file_input_stdin1 = None
         self.working_path = ""
         self.sequence_name = ""
-
         #Check if there is a filename indicated
         self.parse_stdin()
         if self.file_input_name1 is not "" or self.file_input_stdin1 is not None:
@@ -34,6 +33,11 @@ class File():
     def parse_stdin(self):
         if len(sys.argv) == 2 and sys.argv[1] is not None:
             self.file_input_name1 = sys.argv[1]
+            if self.file_input_name1 == "h" or self.file_input_name1 == "-h" or self.file_input_name1 == "-help" or self.file_input_name1 == "help":
+                print("Translate coding sequences into protein sequences. Only true CDSs are translated\n")
+                print("To use this script type:    python /path/to/transProt.py /path/to/Fasta.fa\n")
+                print("If still in desperate need for help see https://github.com/zendl0r/sequence_annotation")
+                exit()
             self.working_path = os.path.dirname(os.path.realpath(sys.argv[1]))
         elif not sys.stdin.isatty():
             self.file_input_stdin1 = sys.stdin
@@ -42,6 +46,7 @@ class File():
             exit("Please provide a valid filename/file as input")
 
     def read_content_of_file(self):
+        print("Check6")
         try:
             if self.file_input_stdin1 is None:
                     with open(self.file_input_name1, 'r') as file_obj:
