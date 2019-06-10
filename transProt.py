@@ -8,6 +8,7 @@
 from __future__ import print_function
 import sys, os, datetime, time
 import cProfile
+import re
 #------------------------------------------------------------------------------
 #Taken from: https://www.agnosticdev.com/content/how-open-file-python
 #Matt Eaton on Sun, 12/17/2017 - 10:35 PM
@@ -66,8 +67,11 @@ def convFasta(multiFastaFile):#Write the sequence of a multifasta file in one li
 
     for lines in multiFastaFile:
         if lines != "" and lines[:1] == '>':
-            seqName = lines.split('.')
-            seqName = '.'.join(seqName[0:3]) + '.prot'
+            seqName = re.split('\W+', lines)
+            if len(seqName) > 18:
+                seqName = '>'+'.'.join(seqName[1:6])+ '.prot'
+            if len(seqName) < 18 and len(seqName)> 11:
+                seqName = '>'+''.join(seqName[1:2])+'.'+'.'.join(seqName[5:7])+'.prot'
             new_file = new_file + seqName
             a = a + 1
 
