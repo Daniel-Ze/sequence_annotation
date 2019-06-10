@@ -127,8 +127,7 @@ ATGGGGTTTATTGTAGCATTAGTTCTCATGTCCCTTTTAGCAATGTATCTAGCAGGAGGAGCAGAAGCAGTTTTAAATCT
 ```
 
 The python script can be called as follows:
-- Change to path with the fasta file
 
-	>python /path/to/transProt.py multi_fasta.fa
+	>python /path/to/transProt.py /path/to/multi_fasta.fa
 
 The script will output a .fa file in the working directory with the CDS fasta file and it will output the sequences in the terminal.
