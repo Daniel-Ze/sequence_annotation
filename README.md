@@ -113,6 +113,43 @@ The python script can be called as follows:
 	>python /path/to/the/script/extract_fasta.py /path/to/the/sequence/neme/file/SeqIDs.txt /path/to/the/multi/fasta/file/Sequences.fa
 
 The script will output a .fa file in the working directory with the fasta file and it will output the sequences in the terminal.
+## Extract conding sequences from a fasta file
+Script to extract coding sequences from a fasta file using a .gff3 annotation file.
+
+### Working with exCDSGFF.py
+Files needed:
+- gff3 file with only the CDS positions genes (use grep -E "cds" or "CDS" and redirect to new file.gff3)
+- fasta.fa file with single or multiple sequences from which the CDSs will be extracted
+
+Example input .gff3 file:
+```
+##gff-version 3
+##sequence region	1 90
+Test	geneFind	Gene	2	25	.	-	.	ID=Gene0001;name=META1_I-int;sw_score=279;perc.div=8.3
+Test1	geneFind	Gene	2	4	.	-	.	ID=Gene0002;name=META1_I-int;sw_score=279;perc.div=8.3
+```
+Example input .fa file:
+```
+>Test
+ACGATAGAAGGGCGACGAGAGCGAGCGAGAGCGAGCAGAGGCGAGCGAGGCGTCGATCG
+ATACGTAGCTAGTAGACGAGAAGGGCGACGAGAGCGAGCGAGAGCGAGCAGAGGCGAGC
+GAGGCGTCGATCGATACGTAGCTAGTAGACGAGAAGGGCGACGAGAGCGAGCGAGAGCG
+AGCAGAGGCGAGCGAGGCGTCGATCGATACGTAGCTAGTAGACGAGAAGGGCGACGAGA
+GCGAGCGAGAGCGAGCAGAGGCGAGCGAGGCGTCGATCGATACGTAGCTAGTAGACGAG
+AAGGGCGACGAGAGCGAGCGAGAGCG
+>Test1
+AGAGGCGAGCGAGGCGTCGATCGATACGTAGCTAGTAGACGAGAAGGGCGACGAGAGCG
+AGCGAGAGCGAGCAGAGGCGAGCGAGGCGTCGATCGATACGTAGCTAGTAGAGGCGAGC
+GAGGCGTCGATCGATACGTAGCTAGTAGACGAGAAGGGCGACGAGAGCGAGCGAGAGCG
+AGC
+```
+
+The python script can be called as follows:
+
+	> python /path/to/transProt.py /path/to/CDS.gff3 /path/to/Fasta.fa
+
+The script will output a .fa file in the directory of the .gff3 file with the CDS, GC content of CDS, length and strand
+infromation. The same will be promted to the terminal.
 
 ## Translate CDS to protein
 This script is translating a multi fasta file with coding sequences to a multi fasta file with protein sequences.
@@ -131,4 +168,4 @@ The python script can be called as follows:
 
 	>python /path/to/transProt.py /path/to/multi_fasta.fa
 
-The script will output a .fa file in the working directory with the CDS fasta file and it will output the sequences in the terminal.
+The script will output a .fa file in the directory with the CDS.fa file and it will output the sequences in the terminal.
