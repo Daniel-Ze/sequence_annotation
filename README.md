@@ -125,8 +125,8 @@ Example input .gff3 file:
 ```
 ##gff-version 3
 ##sequence region	1 90
-Test	geneFind	Gene	2	25	.	-	.	ID=Gene0001;name=META1_I-int;sw_score=279;perc.div=8.3
-Test1	geneFind	Gene	2	4	.	-	.	ID=Gene0002;name=META1_I-int;sw_score=279;perc.div=8.3
+Test	geneFind	CDS	2	25	.	-	.	ID=Gene0001;name=META1_I-int;sw_score=279;perc.div=8.3
+Test1	geneFind	CDS	2	4	.	-	.	ID=Gene0002;name=META1_I-int;sw_score=279;perc.div=8.3
 ```
 Example input .fa file:
 ```
