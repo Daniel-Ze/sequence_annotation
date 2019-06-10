@@ -27,14 +27,14 @@ class File():
         if self.file_input_name1 is not "" or self.file_input_stdin1 is not None:
             self.read_content_of_file()
         else:
-            exit("Somthing went wrong with parsing your input file. Exiting. SeqIDs")
+            exit("Somthing went wrong with parsing your input file. Exiting.")
         if len(self.file_lines1) == 0:
             exit("Nothing to read here. Exiting")
 
     def parse_stdin(self):
         if len(sys.argv) == 2 and sys.argv[1] is not None:
             self.file_input_name1 = sys.argv[1]
-            self.working_path = os.getcwd()
+            self.working_path = os.path.dirname(os.path.realpath(sys.argv[1]))
         elif not sys.stdin.isatty():
             self.file_input_stdin1 = sys.stdin
         else:
@@ -108,7 +108,9 @@ def transProt(CDS):
 def main():
     file = File()
     cwd = file.working_path
-    out = open(cwd + '/' + file.file_input_name1 + '.prot.fa', 'w')
+    file_name = file.file_input_name1.split('/')
+    file_name = ''.join(file_name[-1:])
+    out = open(cwd + '/' + file_name + '.prot.fa', 'w')
     new_file_1 = convFasta(file.file_lines1)
     print(new_file_1)
     out.write(new_file_1)
