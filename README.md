@@ -113,4 +113,14 @@ The python script can be called as follows:
 
 The script will output a .fa file in the working directory with the fasta file and it will output the sequences in the terminal.
 
+## Translate CDS to protein
+This script is translating a multi fasta file with coding sequences to a multi fasta file with protein sequences.
+
+### Working with transProt.py
+Files needed:
+- single fasta or multi fasta file
+
+Example input:
+```
+
 
