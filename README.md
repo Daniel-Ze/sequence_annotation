@@ -113,13 +113,15 @@ The python script can be called as follows:
 	>python /path/to/the/script/extract_fasta.py /path/to/the/sequence/neme/file/SeqIDs.txt /path/to/the/multi/fasta/file/Sequences.fa
 
 The script will output a .fa file in the working directory with the fasta file and it will output the sequences in the terminal.
-## Extract conding sequences from a fasta file
-Script to extract coding sequences from a fasta file using a .gff3 annotation file.
 
-### Working with exCDSGFF.py
+
+## Extract gene sequences from a fasta file
+Script to extract gene sequences (UTR,Exon,Intron) from a multi fasta file using a .gff3 annotation file.
+
+### Working with exGeneGFF.py
 Files needed:
-- gff3 file with only the CDS positions genes (use grep -E "cds" or "CDS" and redirect to new file.gff3)
-- fasta.fa file with single or multiple sequences from which the CDSs will be extracted
+- gff3 file with only gene positions (use grep -E "gene" or "Gene" and redirect to new file.gff3)
+- fasta.fa file with single or multiple sequences from which the genes will be extracted
 
 Example input .gff3 file:
 ```
@@ -128,6 +130,7 @@ Example input .gff3 file:
 Test	geneFind	CDS	2	25	.	-	.	ID=Gene0001;name=META1_I-int;sw_score=279;perc.div=8.3
 Test1	geneFind	CDS	2	4	.	-	.	ID=Gene0002;name=META1_I-int;sw_score=279;perc.div=8.3
 ```
+
 Example input .fa file:
 ```
 >Test
@@ -143,6 +146,24 @@ AGCGAGAGCGAGCAGAGGCGAGCGAGGCGTCGATCGATACGTAGCTAGTAGAGGCGAGC
 GAGGCGTCGATCGATACGTAGCTAGTAGACGAGAAGGGCGACGAGAGCGAGCGAGAGCG
 AGC
 ```
+
+The python script can be called as follows:
+
+	> python /path/to/exGeneGFF.py /path/to/CDS.gff3 /path/to/Fasta.fa
+	
+The script will output a .fa file in the directory of the .gff3 file with with the gene, gc content of gene, length and strand information. The same will be promted to the terminal
+
+
+
+## Extract conding sequences from a fasta file
+Script to extract coding sequences from a multi fasta file using a .gff3 annotation file.
+
+### Working with exCDSGFF.py
+Files needed:
+- gff3 file with only the CDS positions (use grep -E "cds" or "CDS" and redirect to new file.gff3)
+- fasta.fa file with single or multiple sequences from which the CDSs will be extracted
+
+
 
 The python script can be called as follows:
 
