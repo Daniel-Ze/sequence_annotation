@@ -46,7 +46,7 @@ class File():
             if self.file_input_seqID == "h" or self.file_input_seqID == "-h" or self.file_input_seqID == "-help" or self.file_input_seqID == "help":
                 print(" _________________________________________________________________________________________")
                 print("|Extract sequences from a multi Fasta file using a sequence name list.                    |\n|")
-                print("|Type: python seqIDs_file multiFasta.fa                                                   |\n|")
+                print("|Type: python extract_fasta.py seqIDs_file multiFasta.fa                                  |\n|")
                 print("|If still in desperate need for help see: https://github.com/zendl0r/sequence_annotation  |")
                 print(" ----------------------------------------------------------------------------------------- ")
                 exit()
@@ -57,7 +57,7 @@ class File():
         else:
             print(" _________________________________________________________________________________________")
             print("|Extract sequences from a multi Fasta file using a sequence name list.                    |\n|")
-            print("|Type: python seqIDs_file multiFasta.fa                                                   |\n|")
+            print("|Type: python extract_fasta.py seqIDs_file multiFasta.fa                                  |\n|")
             print("|If still in desperate need for help see: https://github.com/zendl0r/sequence_annotation  |")
             print(" ----------------------------------------------------------------------------------------- ")
             exit()
