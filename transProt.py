@@ -34,9 +34,11 @@ class File():
         if len(sys.argv) == 2 and sys.argv[1] is not None:
             self.file_input_name1 = sys.argv[1]
             if self.file_input_name1 == "h" or self.file_input_name1 == "-h" or self.file_input_name1 == "-help" or self.file_input_name1 == "help":
-                print("Translate coding sequences into protein sequences. Only true CDSs are translated\n")
-                print("To use this script type:    python /path/to/transProt.py /path/to/Fasta.fa\n")
-                print("If still in desperate need for help see https://github.com/zendl0r/sequence_annotation")
+                print(" _________________________________________________________________________________________")
+                print("|Translate coding sequences into protein sequences. Only true CDSs are translated!        |\n|")
+                print("|To use this script type:           python /path/to/transProt.py /path/to/Fasta.fa        |\n|")
+                print("|If still in desperate need for help see: https://github.com/zendl0r/sequence_annotation  |")
+                print(" ----------------------------------------------------------------------------------------- ")
                 exit()
             self.working_path = os.path.dirname(os.path.realpath(sys.argv[1]))
         elif not sys.stdin.isatty():
@@ -63,31 +65,29 @@ class File():
 #Matt Eaton on Sun, 12/17/2017 - 10:35 PM
 #------------------------------------------------------------------------------
 
-def convFasta(multiFastaFile):#Write the sequence of a multifasta file in one line per seq
+def convFasta(multiFastaFile):
 
     new_file = ''
     sequence = ''
-    a = 0
+    a = 1
     count_l = len(multiFastaFile)
-
     for lines in multiFastaFile:
         if lines != "" and lines[:1] == '>':
-            seqName = re.split('\W+', lines)
-            if len(seqName) > 18:
-                seqName = '>'+'.'.join(seqName[1:6])+ '.prot'
-            if len(seqName) < 18 and len(seqName)> 11:
-                seqName = '>'+''.join(seqName[1:2])+'.'+'.'.join(seqName[5:7])+'.prot'
-            new_file = new_file + seqName
+            #seqName = re.split('\W+', lines)
+            #if len(seqName) > 18:
+            #    seqName = '>'+'.'.join(seqName[1:6])+ '.prot'
+            #if len(seqName) < 18 and len(seqName)> 11:
+            #    seqName = '>'+''.join(seqName[1:2])+'.'+'.'.join(seqName[5:7])+'.prot'
+            #print(seqName)
+            #exit()
+            new_file = new_file + lines
             a = a + 1
-
             while a < count_l and '>' not in multiFastaFile[a]:
                 sequence = sequence + multiFastaFile[a].rstrip()
                 a = a + 1
-
             sequence = transProt(sequence)
-            new_file = new_file + ' ' + str(len(sequence)) + ' aa\n' + sequence + "\n"
+            new_file = new_file + '_' + str(len(sequence)) + '_aa\n' + sequence + "\n"
             sequence = ''
-
     return new_file
 
 def transProt(CDS):
@@ -118,6 +118,7 @@ def main():
     out = open(cwd + '/' + file_name + '.prot.fa', 'w')
     new_file_1 = convFasta(file.file_lines1)
     print(new_file_1)
+    exit()
     out.write(new_file_1)
     out.close()
 
