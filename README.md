@@ -173,7 +173,7 @@ The script will output a .fa file in the directory of the .gff3 file with the CD
 infromation. The same will be promted to the terminal.
 
 ## Translate CDS to protein
-This script is translating a multi fasta file with coding sequences to a multi fasta file with protein sequences.
+This script translates a multi fasta file with coding sequences (CDS) to a multi fasta file with protein sequences.
 
 ### Working with transProt.py
 Files needed:
