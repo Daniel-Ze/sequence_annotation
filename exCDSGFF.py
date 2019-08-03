@@ -203,8 +203,6 @@ def main():
             old_seqName = str(fields[0])
             old_strand = strand
             geneID = id_2
-
-
 #------------------------------------------------------------
     length = len(seq)
     gc = findGCgene(seq)
@@ -214,8 +212,7 @@ def main():
     print(new_file_CDS)
     out.write(new_file_CDS)
     out.close()
-
 #------------------------------------------------------------
 if __name__ == "__main__":
     main()
-    #cProfile.run('main()', sort='time')
+    #cProfile.run('main()', sort='time')   #uncomment this for infos on the run
