@@ -3,7 +3,7 @@
 #This should be used to create subsets from gene or protein lists after using
 #signalP or targetP.
 #How-to use:
-#   python exSeqList.py
+#   python exSeqList.py SeqID_file multifasta.fa
 #correspondance: d.zendler@gmx.de
 #Tested on python version 2.7.15_1, MacOS High Sierra 10.13.6
 
