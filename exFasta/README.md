@@ -1,4 +1,4 @@
-#Test the script:
+Test the script:
 To test the script run change to directory and run:
 
 'python extract_fasta.py signalp.out translated_cds.fa'
