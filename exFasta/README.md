@@ -7,6 +7,6 @@ To test the script run change to directory and run:
   * translated_cds.fa:        **6484** protein sequences 
   * signalp.out.fa:           **332** protein sequences
 
-After a successful run the script outputs the extracted sequences to termal and saves the sequences in a file named after the sequence name file
+After a successful run the script outputs the extracted sequences to the terminal and saves the sequences in a file named after the sequence name file.
 
-Don't use this script to extract reads from NGS data. 
+***Don't use this script to extract reads from NGS data.***
