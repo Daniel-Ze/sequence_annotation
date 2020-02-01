@@ -103,7 +103,7 @@ def convFasta(multiFastaFile):
 
 def revComp(x):
     """Reverse complement sequence"""
-    nuc = {'A': 'T', 'C' : 'G', 'T' : 'A', 'G' : 'C'}
+    nuc = {'A': 'T', 'C' : 'G', 'T' : 'A', 'G' : 'C','N':'N','c':'G','g':'C','a':'T','t':'A','n':'N'}
     seq = ''
     seq_rev = ''
     for _ in x:
@@ -143,11 +143,8 @@ def main():
     new_file_1 = convFasta(file.file_lines2)
     for lines in file.file_lines1:
         if lines != "" and lines[:2] != "##":
-
             lines = lines.rstrip()
-            print(lines)
             fields = lines.split("\t")
-
             sequence_name = ">" + fields[0]
             seqIndex = new_file_1.index(sequence_name) + 1
             feature = fields[2]
